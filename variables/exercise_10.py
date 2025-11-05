@@ -1,0 +1,62 @@
+# Assume that obj already has a value of 42 when the code below starts running. Which of the 
+# subsequent statements reassign the variable? Which statements mutate the value of the object that 
+# obj references? Which statements do neither? If necessary, you can read the documentation.
+
+obj = 'ABcd'
+obj.upper()
+obj = obj.lower()
+print(len(obj))
+obj = list(obj)
+obj.pop()
+obj[2] = 'X'
+obj.sort()
+set(obj)
+obj = tuple(obj)
+
+
+
+# My Answers:
+
+# obj = 42
+obj = 'ABcd'                # Reassignment.
+obj.upper()                 # Neither.
+obj = obj.lower()           # Reassignment.
+print(len(obj))             # Neither.
+obj = list(obj)             # Reassignment.
+obj.pop()                   # Mutation.
+obj[2] = 'X'                # Mutation.
+obj.sort()                  # Mutation.
+set(obj)                    # Neither.
+obj = tuple(obj)            # Reassignment.
+
+
+
+
+
+# Launch School's Answers:
+
+# The comments in the following code show whether reassignment, mutation, or neither took place on 
+# each line of code:
+
+obj = 'ABcd'      # Reassignment
+obj.upper()       # Neither
+obj = obj.lower() # Reassignment
+print(len(obj))   # Neither
+obj = list(obj)   # Reassignment
+obj.pop()         # Mutation
+obj[2] = 'X'      # Mutation
+obj.sort()        # Mutation
+set(obj)          # Neither
+obj = tuple(obj)  # Reassignment
+
+# A simple assignment like var = something is always either an initialization or a reassignment. 
+# Since obj has already been initialized (it has a value of 42 before this code was reached), lines 
+# 1, 3, 5, and 10 perform reassignment. In a few situations, mutation and reassignment can happen 
+# in the same statement. None of the above statements do both.
+
+# obj.upper does not mutate the caller, so line 2 does neither. Likewise, since print, len, and set 
+# don't mutate their arguments, lines 4 and 9 are neither.
+
+# The remaining statements all mutate the object referenced by obj. pop removes the last element of 
+# the list. obj[2] = 'X' reassigns the element at index 2, but it mutates obj itself. Finally, sort 
+# mutates the object when it performs an in-place sort.
